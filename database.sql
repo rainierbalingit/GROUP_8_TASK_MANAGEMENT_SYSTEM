@@ -1,10 +1,10 @@
 -- SQL script to create the Task Management System database and tables
 -- Run this in phpMyAdmin or MySQL command line for the 'task_manager_db' database
 
-CREATE DATABASE IF NOT EXISTS task_manager_db;
+CREATE DATABASE task_manager_db;
 USE task_manager_db;
 
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS projects (
+CREATE TABLE projects (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description TEXT,
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS projects (
     FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS tasks (
+CREATE TABLE tasks (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     description TEXT,
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS tasks (
     FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE SET NULL
 );
 
-CREATE TABLE IF NOT EXISTS submissions (
+CREATE TABLE submissions (
     id INT AUTO_INCREMENT PRIMARY KEY,
     task_id INT NOT NULL,
     user_id INT NOT NULL,
