@@ -1,6 +1,3 @@
--- SQL script to create the Task Management System database and tables
--- Run this in phpMyAdmin or MySQL command line for the 'task_manager_db' database
-
 CREATE DATABASE task_manager_db;
 USE task_manager_db;
 
